@@ -51,10 +51,11 @@ We will start off by creating a `db.ts` file inside of our `src/lib` directory. 
 ```ts
 // src/lib/db.ts
 import { createSupabaseClient } from '@supabase/auth-helpers-sveltekit'
+import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from '$env/static/public';
 
 const { supabaseClient } = createSupabaseClient(
-  import.meta.env.VITE_SUPABASE_URL as string,
-  import.meta.env.VITE_SUPABASE_ANON_KEY as string
+  PUBLIC_SUPABASE_URL,
+  PUBLIC_SUPABASE_ANON_KEY
 )
 
 export { supabaseClient }
